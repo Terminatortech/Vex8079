@@ -29,14 +29,7 @@ void pre_auton()
 	// All activities that occur before the competition starts
 	// Example: clearing encoders, setting servo positions, ...
 
-  // Willem: in this case we just have the robot move forward a bit to demonstrate
-  //         how the pre_autorun works.
-  wait1Msec(2000);						// Robot waits for 2000 milliseconds before executing program
 
-	// Move forward at half power for 3 seconds
-	motor[rightMotor] = 60;		  // Motor on port2 is run at full (127) power forward
-	motor[leftMotor]  = 60;		  // Motor on port3 is run at full (127) power forward
-	wait1Msec(3000);			        // Robot runs previous code for 3000 milliseconds
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -52,23 +45,7 @@ task autonomous()
 {
   // .....................................................................................
   // Insert user code here.
-  // .....................................................................................
-
-	//AutonomousCodePlaceholderForTesting();  // Remove this function call once you have "real" code.
-
-	// Willem:  We are going to make a pivot turn to the right followed by one to the left
-	// Turn Right at full power for 0.75 seconds
-	motor[rightMotor] = -127;		  // Motor on port2 is run at full (-127) power reverse
-	motor[leftMotor]  = 127;			// Motor on port3 is run at full (127) power forward
-	wait1Msec(750);					      // Robot runs previous code for 750 milliseconds before moving on
-
-	// Turn Left at full power for 0.75 seconds
-	motor[rightMotor] = 127;			// Motor on port2 is run at full (127) power forward
-	motor[leftMotor]  = -127;		  // Motor on port3 is run at full (-127) power reverse
-	wait1Msec(750);					      // Robot runs previous code for 750 milliseconds before moving on
-
-	motor[rightMotor] = 0;
-	motor[leftMotor] = 0;
+  // .................................................................................
 
 }
 
@@ -90,16 +67,8 @@ task usercontrol()
 	  // This is the main execution loop for the user control program. Each time through the loop
 	  // your program should update motor + servo values based on feedback from the joysticks.
 
-	  // .....................................................................................
-	  // Insert user code here. This is where you use the joystick values to update your motors, etc.
-	  // .....................................................................................
 
-	  //UserControlCodePlaceholderForTesting(); // Remove this function call once you have "real" code.
-
-	  // Willem: We are just inserting a basic tank control remote program here to demonstrate how it works
-	  //Driving Motor Control
-    motor[leftMotor] = vexRT[Ch3] / 2;
-    motor[rightMotor] = vexRT[Ch2] / 2;
+	  UserControlCodePlaceholderForTesting(); // Remove this function call once you have "real" code.
 
 	}
 }
